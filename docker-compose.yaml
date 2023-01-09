@@ -1,0 +1,15 @@
+services:
+  node:
+    environment:
+      YARN_CACHE_FOLDER: '/home/yarn-cache'
+    # Netlify CLI needs Python, which is not present in "node:slim". So we use the full "node" image instead.
+    image: node:lts-slim
+    ports:
+      - '5173:5173'
+    user: '${HOST_USER_IDS:-1000:1000}'
+    volumes:
+      - '.:/srv/app'
+      - '${HOST_YARN_CACHE_FOLDER:-~/.cache/yarn}:/home/yarn-cache'
+      - '${HOST_YARN_CONFIG_FOLDER:-~/.yarn}:/.yarn'
+      - '${HOST_YARN_CONFIG_FILE:-~/.yarnrc}:/.yarnrc'
+    working_dir: '/srv/app'
