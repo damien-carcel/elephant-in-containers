@@ -2,6 +2,8 @@
 
 Developing in PHP with Docker.
 
+https://elephant-in-containers.carcel.dev/
+
 ## How to use the presentation
 
 - Install the dependencies:
@@ -9,15 +11,15 @@ Developing in PHP with Docker.
   $ docker compose run --rm node yarn install --frozen-lockfile --check-files
   ```
 
-- Build the artifacts then serve the presentation:
+- Use the development server to serve the presentation and have hot-reloading while coding:
   ```bash
-  $ docker compose run --rm node yarn build
-  $ docker compose run --rm node yarn preview
+  $ docker compose run --rm node yarn dev --host
   ```
 
-- Or directly use the development server:
+- or build the artifacts, then serve the presentation in a production-like mode:
   ```bash
-  $ docker compose run --rm --service-ports node yarn dev
+  $ docker compose run --rm node yarn build
+  $ docker compose run --rm node yarn preview --host
   ```
 
 ## License
