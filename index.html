@@ -1,77 +1,132 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
-  <head>
-    <meta charset="utf-8" />
+<head>
+  <meta charset="utf-8"/>
 
-    <title>How to put an elephant in a container</title>
+  <title>How to put an elephant in a container</title>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
 
-    <meta name="description" content="Development in PHP with Docker" />
-    <meta name="author" content="Damien Carcel" />
+  <meta name="description" content="Development in PHP with Docker"/>
+  <meta name="author" content="Damien Carcel"/>
 
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 
-    <meta
+  <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
-    />
-  </head>
+  />
+  <link rel="stylesheet" href="style.css"/>
+</head>
 
-  <body>
-    <div class="reveal">
-      <div class="slides">
+<body>
+<div class="reveal">
+  <div class="slides">
 
-        <section class="center">
-          <h2>How to put an elephant in a container</h2>
-          <h3>Developing in PHP with Docker</h3>
+    <section class="center">
+      <h2>How to put an elephant in a container</h2>
+      <p>-</p>
+      <h3>Developing in PHP with Docker</h3>
+    </section>
 
-          <br />
+    <section id="intro">
+      <section>
+        <h2>About me</h2>
 
-          <h3>Damien Carcel</h3>
-        </section>
+        <div class="container slide-content">
+          <div class="col">photo</div>
+          <div class="col">moi</div>
+        </div>
 
-        <section id="intro">
-          <section>
-            <h2>About Me</h2>
+        <aside class="notes">
+          <!-- -->
+        </aside>
+      </section>
 
-            <aside class="notes">
-              <!-- -->
-            </aside>
-          </section>
+      <section>
+        <h2>The problem</h2>
 
-          <section>
-            <h2>Intro</h2>
+        <div></div>
 
-            <aside class="notes">
-              <!-- -->
-            </aside>
-          </section>
-        </section>
+        <aside class="notes">
+          Akeneo PIM => so many PHP, MySQL (and more) versions at once...
+        </aside>
+      </section>
 
-      </div>
-    </div>
+      <section>
+        <h2>The solution</h2>
 
-    <footer class="footer">
-      <ul>
-        <li>
-          <img
-            src="./node_modules/akeneo-revealjs-theme/images/logo-svg-black.svg"
-            width="200"
-            style="vertical-align: middle"
-            alt="logo"
-          />
-        </li>
-        <li>
-          <span class="name">Damien Carcel</span>
-        </li>
-      </ul>
-    </footer>
+        <aside class="notes">
+          Docker !
+        </aside>
+      </section>
+    </section>
 
-    <script type="module" src="/main.js"></script>
-  </body>
+    <section id="docker">
+      <section>
+        <h2 class="title">What is Docker</h2>
+
+        <div></div>
+
+        <aside class="notes">
+          Containers vs VMs
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="title">Docker images</h2>
+
+        <div></div>
+
+        <aside class="notes">
+          Registries
+        </aside>
+      </section>
+
+      <section>
+        <h2 class="title">Docker images</h2>
+
+        <div></div>
+
+        <aside class="notes">
+          Build your own from a Dockerfile
+        </aside>
+      </section>
+    </section>
+
+    <section id="demo">
+      <section>
+      <section>
+        <h2>Let's build</h2>
+
+        <aside class="notes">
+          Create and run a Symfony app through Docker.
+        </aside>
+      </section>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <ul>
+    <li>
+      <img
+          src="./node_modules/akeneo-revealjs-theme/images/logo-svg-black.svg"
+          width="200"
+          style="vertical-align: middle"
+          alt="logo"
+      />
+    </li>
+    <li>
+      <span class="name">Damien Carcel</span>
+    </li>
+  </ul>
+</footer>
+
+<script type="module" src="/main.js"></script>
+</body>
 </html>
