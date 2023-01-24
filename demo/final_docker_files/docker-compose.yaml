@@ -1,0 +1,18 @@
+services:
+  php:
+    build: .
+    command: php -S 0.0.0.0:8000 -t public
+    environment:
+      COMPOSER_HOME: /home/composer/.config/composer
+      COMPOSER_CACHE_DIR: /home/composer/.cache/composer
+      PHP_IDE_CONFIG: serverName=my-app
+      XDEBUG_CONFIG: client_host=172.17.0.1
+      XDEBUG_MODE: ${XDEBUG_MODE:-off}
+    ports:
+      - 8000:8000
+    user: 1000:1000
+    volumes:
+      - ./:/app
+      - ~/.cache/composer:/home/composer/.cache/composer
+      - ~/.config/composer:/home/composer/.config/composer
+    working_dir: /app
