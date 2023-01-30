@@ -30,12 +30,8 @@ RUN echo 'APT::Install-Recommends "0" ; APT::Install-Suggests "0" ;' > /etc/apt/
     apt-get --yes autoremove --purge && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Configure PHP CLI
 COPY docker/app.ini /etc/php/8.2/cli/conf.d/99-app.ini
-
-# Configure XDEBUG and make XDEBUG activable at container start
 COPY docker/xdebug.ini /etc/php/8.2/cli/conf.d/99-app-xdebug.ini
 
-# Install composer
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 RUN chmod +x /usr/local/bin/composer

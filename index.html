@@ -28,7 +28,7 @@
   <div class="slides">
 
     <section>
-      <h2>How to put an elephant in a container</h2>
+      <h2>How to put an elephant<br/>in a container</h2>
       <p>-</p>
       <h3>Developing in PHP with Docker</h3>
     </section>
@@ -40,9 +40,9 @@
         <div class="centered-slide-content two-columns-slide">
           <div class="col"><img alt="pingoo" src="images/pingoo.png" height="300px">
             <br/>
-            Damien Carcel
+            <b>Damien Carcel</b>
             <br/>
-            <span>Software Lead at Akeneo</span>
+            <i>Software Lead at Akeneo</i>
           </div>
           <div class="col">
             <br>
@@ -55,7 +55,9 @@
           </div>
         </div>
 
-        <aside class="notes"></aside>
+        <aside class="notes">
+          Say a few words about Akeneo and the PIM.
+        </aside>
       </section>
 
       <section>
@@ -90,16 +92,18 @@
           </ul>
         </div>
 
-        <aside class="notes"></aside>
+        <aside class="notes">
+          2017
+        </aside>
       </section>
 
       <section>
         <h2>The solution</h2>
 
         <div class="centered-slide-content">
-          <div class="fragment"><b>Docker!</b></div>
+          <div class="fragment" style="font-size: 200%"><b>Docker!</b></div>
           <br/>
-          <div class="fragment">And some other stuff before it (Vagrant, LXC).</div>
+          <div class="fragment" style="font-size: 80%">(We tried some other stuff before it: Vagrant, LXC…)</div>
         </div>
 
         <aside class="notes"></aside>
@@ -127,6 +131,8 @@
         <aside class="notes">
           We used Vagrant as a front-end for Virtual Box.
           Slow, especially when you share files between the VM and the host.
+          Docker has native performances.
+          Compared to LXC, Docker is lighter: only one process, not a whole system.
         </aside>
       </section>
 
@@ -142,6 +148,7 @@
         <aside class="notes">
           A lot of "official" (made by Docker teams) images are on the Docker Hub.
           Other registries exist, and can be private.
+          You can choose the version you want.
         </aside>
       </section>
     </section>
@@ -149,8 +156,11 @@
     <section id="demo">
       <section>
         <h2>Let's build</h2>
-
-        <div class="centered-slide-content"></div>
+        <div class="centered-slide-content">
+          <br/>
+          <br/>
+          <img alt="cat" src="images/cat.png">
+        </div>
 
         <aside class="notes">
           Create and run a Symfony app through Docker.
@@ -158,13 +168,28 @@
       </section>
 
       <section>
-        <h2 class="title">Let's go further</h2>
+        <h2 class="title">Let's go further with our own image</h2>
 
         <div class="centered-slide-content">
-          <pre><code data-trim data-noescape>
-            FROM debian:bullseye
+            <pre style="font-size: large"><code class="dockerfile">
+FROM debian:bullseye-slim
 
-            RUN apt-get update && apt-get install php
+ARG DEBIAN_FRONTEND=noninteractive
+ENV XDEBUG_ENABLED=0
+
+RUN apt-get update && \
+    apt-get --yes install apt-transport-https ca-certificates gpg gpg-agent wget && \
+    echo 'deb https://packages.sury.org/php/ bullseye main' > /etc/apt/sources.list.d/sury.list && \
+    wget -O sury.gpg https://packages.sury.org/php/apt.gpg && apt-key add sury.gpg && rm sury.gpg && \
+    apt-get update && \
+    apt-get --yes install php8.2-apcu php8.2-cli php8.2-curl php8.2-intl \
+                          php8.2-opcache php8.2-xdebug php8.2-xml php8.2-zip unzip
+
+COPY docker/app.ini /etc/php/8.2/cli/conf.d/99-app.ini
+COPY docker/xdebug.ini /etc/php/8.2/cli/conf.d/99-app-xdebug.ini
+
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+RUN chmod +x /usr/local/bin/composer
           </code></pre>
         </div>
 
@@ -172,16 +197,29 @@
           Create a dedicated Dockerfile and build it as an image.
         </aside>
       </section>
+
+      <section>
+        <h2>Docker Compose for the win</h2>
+        <div class="centered-slide-content">
+          <br/>
+          <br/>
+          <img alt="compose" src="images/compose.png">
+        </div>
+
+        <aside class="notes">
+          Let's build AND run the image with Docker Compose
+        </aside>
+      </section>
     </section>
 
     <section id="conclusion">
       <section>
-        <h2>A few tips</h2>
+        <h2>A few tips to finish</h2>
 
         <div class="centered-slide-content"></div>
 
         <aside class="notes">
-          Give a list of usefull tips
+          Give a list of useful tips
         </aside>
       </section>
 
