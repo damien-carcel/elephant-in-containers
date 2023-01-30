@@ -38,35 +38,71 @@
         <h2 class="top-slide-header">About me</h2>
 
         <div class="centered-slide-content two-columns-slide">
-          <div class="col"><img src="images/pingoo.png"  height="300px"></div>
+          <div class="col"><img alt="pingoo" src="images/pingoo.png" height="300px">
+            <br/>
+            Damien Carcel
+            <br/>
+            <span>Software Lead at Akeneo</span>
+          </div>
           <div class="col">
-            <div>Akeneo</div>
-            <div>Twitter</div>
-            <div>LinkedIn</div>
+            <br>
+            <br>
+            <div><a href="https://github.com/damien-carcel">GitHub</a></div>
+            <br>
+            <div><a href="https://twitter.com/damiencarcel">Twitter</a></div>
+            <br>
+            <div><a href="https://www.linkedin.com/in/damien-carcel/">LinkedIn</a></div>
           </div>
         </div>
 
-        <aside class="notes">
-          <!-- -->
-        </aside>
+        <aside class="notes"></aside>
       </section>
 
       <section>
         <h2>The problem</h2>
 
-        <div></div>
+        <div class="centered-slide-content">
+          <div>Working on Akeneo PIM in 2015 as a support engineer:</div>
+          <br/>
+          <div><span class="fragment">Symfony 2 on a LAMP stack.</span><span class="fragment">&nbsp;But...</span></div>
+          <br/>
+          <ul>
+            <li class="fragment">PHP 5.3 to 5.6</li>
+            <li class="fragment">MySQL 5.5 or 5.6</li>
+            <li class="fragment">Optionally MongoDB (2.2 or 2.4) and Elasticsearch</li>
+            <li class="fragment">Apache (2.2 or 2.4) with mod_php</li>
+          </ul>
+        </div>
 
-        <aside class="notes">
-          Akeneo PIM => so many PHP, MySQL (and more) versions at once...
-        </aside>
+        <aside class="notes"></aside>
+      </section>
+
+      <section>
+        <h2>The problem</h2>
+
+        <div class="centered-slide-content">
+          <div>Then came Akeneo PIM 2</div>
+          <ul>
+            <li class="fragment">PHP 7.*</li>
+            <li class="fragment">MySQL 5.7</li>
+            <li class="fragment">Elasticsearch 5.*</li>
+            <li class="fragment">Apache with PHP FPM</li>
+          </ul>
+        </div>
+
+        <aside class="notes"></aside>
       </section>
 
       <section>
         <h2>The solution</h2>
 
-        <aside class="notes">
-          Docker !
-        </aside>
+        <div class="centered-slide-content">
+          <div class="fragment"><b>Docker!</b></div>
+          <br/>
+          <div class="fragment">And some other stuff before it (Vagrant, LXC).</div>
+        </div>
+
+        <aside class="notes"></aside>
       </section>
     </section>
 
@@ -74,30 +110,38 @@
       <section>
         <h2 class="title">What is Docker</h2>
 
-        <div></div>
+        <div class="centered-slide-content">
+          <img alt="docker" src="images/docker.png">
+        </div>
+
+        <aside class="notes"></aside>
+      </section>
+
+      <section>
+        <h2 class="title">Docker is not a VM</h2>
+
+        <div class="centered-slide-content">
+          <img alt="vms_vs_containers" src="images/vms_vs_containers.jpg">
+        </div>
 
         <aside class="notes">
-          Containers vs VMs
+          We used Vagrant as a front-end for Virtual Box.
+          Slow, especially when you share files between the VM and the host.
         </aside>
       </section>
 
       <section>
         <h2 class="title">Docker images</h2>
 
-        <div></div>
+        <div class="centered-slide-content">
+          <br/>
+          <br/>
+          <img alt="hub" src="images/hub.png">
+        </div>
 
         <aside class="notes">
-          Registries
-        </aside>
-      </section>
-
-      <section>
-        <h2 class="title">Docker images</h2>
-
-        <div></div>
-
-        <aside class="notes">
-          Build your own from a Dockerfile
+          A lot of "official" (made by Docker teams) images are on the Docker Hub.
+          Other registries exist, and can be private.
         </aside>
       </section>
     </section>
@@ -106,13 +150,23 @@
       <section>
         <h2>Let's build</h2>
 
+        <div class="centered-slide-content"></div>
+
         <aside class="notes">
           Create and run a Symfony app through Docker.
         </aside>
       </section>
 
       <section>
-        <h2>Go further</h2>
+        <h2 class="title">Let's go further</h2>
+
+        <div class="centered-slide-content">
+          <pre><code data-trim data-noescape>
+            FROM debian:bullseye
+
+            RUN apt-get update && apt-get install php
+          </code></pre>
+        </div>
 
         <aside class="notes">
           Create a dedicated Dockerfile and build it as an image.
@@ -124,16 +178,15 @@
       <section>
         <h2>A few tips</h2>
 
+        <div class="centered-slide-content"></div>
+
         <aside class="notes">
           Give a list of usefull tips
         </aside>
       </section>
 
       <section>
-        <h2>Thank you</h2>
-
-        <aside class="notes">
-        </aside>
+        <div class="centered-slide-content thank-you">Thank you</div>
       </section>
     </section>
 
