@@ -20,8 +20,8 @@ Configure composer cache and config in the container, and add more volumes to sh
 services:
   composer:
     environment: # add
-      COMPOSER_HOME: /home/composer/.config/composer
       COMPOSER_CACHE_DIR: /home/composer/.cache/composer
+      COMPOSER_HOME: /home/composer/.config/composer
     image: composer:latest
     user: 1000:1000
     volumes:

@@ -58,6 +58,7 @@ docker compose up
 docker compose up -d
 docker compose logs composer
 docker compose logs -f composer
-docker compose down -v
+docker compose down
+docker network ls
 ```
 You can still run other commands!

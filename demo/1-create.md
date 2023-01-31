@@ -18,10 +18,10 @@ docker run --rm -i -t composer bash
 Run a `composer --version`.
 
 ```bash
-docker run --rm -v /home/damien/Downloads:/app composer composer create-project symfony/skeleton
+docker run --rm -v /home/damien/Development/Presentations:/app composer composer create-project symfony/skeleton afup-demo
 ```
 It worked, but as root...
 
 ```bash
-docker run --rm -v /home/damien/Downloads:/app -u "$(id -u):$(id -g)" composer composer create-project symfony/skeleton
+docker run --rm -v /home/damien/Development/Presentations:/app -u "$(id -u):$(id -g)" composer composer create-project symfony/skeleton afup-demo
 ```

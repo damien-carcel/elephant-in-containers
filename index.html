@@ -28,7 +28,7 @@
   <div class="slides">
 
     <section>
-      <h2>How to put an elephant<br/>in a container</h2>
+      <h2>How to put an elephant<br>in a container</h2>
       <p>-</p>
       <h3>Developing in PHP with Docker</h3>
     </section>
@@ -39,9 +39,9 @@
 
         <div class="centered-slide-content two-columns-slide">
           <div class="col"><img alt="pingoo" src="images/pingoo.png" height="300px">
-            <br/>
+            <br>
             <b>Damien Carcel</b>
-            <br/>
+            <br>
             <i>Software Lead at Akeneo</i>
           </div>
           <div class="col">
@@ -65,9 +65,9 @@
 
         <div class="centered-slide-content">
           <div>Working on Akeneo PIM in 2015 as a support engineer:</div>
-          <br/>
+          <br>
           <div><span class="fragment">Symfony 2 on a LAMP stack.</span><span class="fragment">&nbsp;But...</span></div>
-          <br/>
+          <br>
           <ul>
             <li class="fragment">PHP 5.3 to 5.6</li>
             <li class="fragment">MySQL 5.5 or 5.6</li>
@@ -102,7 +102,7 @@
 
         <div class="centered-slide-content">
           <div class="fragment" style="font-size: 200%"><b>Docker!</b></div>
-          <br/>
+          <br>
           <div class="fragment" style="font-size: 80%">(We tried some other stuff before it: Vagrant, LXC…)</div>
         </div>
 
@@ -140,8 +140,8 @@
         <h2 class="title">Docker images</h2>
 
         <div class="centered-slide-content">
-          <br/>
-          <br/>
+          <br>
+          <br>
           <img alt="hub" src="images/hub.png">
         </div>
 
@@ -157,8 +157,8 @@
       <section>
         <h2>Let's build</h2>
         <div class="centered-slide-content">
-          <br/>
-          <br/>
+          <br>
+          <br>
           <img alt="cat" src="images/cat.png">
         </div>
 
@@ -201,8 +201,8 @@ RUN chmod +x /usr/local/bin/composer
       <section>
         <h2>Docker Compose for the win</h2>
         <div class="centered-slide-content">
-          <br/>
-          <br/>
+          <br>
+          <br>
           <img alt="compose" src="images/compose.png">
         </div>
 
@@ -216,11 +216,59 @@ RUN chmod +x /usr/local/bin/composer
       <section>
         <h2>A few tips to finish</h2>
 
-        <div class="centered-slide-content"></div>
+        <div class="centered-slide-content">
+          <div class="fragment">Like you update your system, pull images regularly</div>
+          <br>
+          <ul>
+            <li class="fragment">docker (compose) pull</li>
+            <li class="fragment">docker (compose) build --pull</li>
+          </ul>
+        </div>
 
-        <aside class="notes">
-          Give a list of useful tips
-        </aside>
+        <aside class="notes"></aside>
+      </section>
+
+      <section>
+        <h2>A few tips to finish</h2>
+
+        <div class="centered-slide-content">
+          <div>Accessing your logs is easy</div>
+          <br>
+          <ul>
+            <li class="fragment">docker (compose) logs &lt;container/service&gt;</li>
+            <li class="fragment">docker (compose) logs -f &lt;container/service&gt;</li>
+            <li class="fragment">docker (compose) logs --tail x &lt;container/service&gt;</li>
+          </ul>
+        </div>
+
+        <aside class="notes"></aside>
+      </section>
+
+      <section>
+        <h2>A few tips to finish</h2>
+
+        <div class="centered-slide-content">
+          <div>Don't forget to clean up</div>
+          <br>
+          <ul>
+            <li class="fragment">docker container/image/network/volume prune</li>
+            <li class="fragment">docker system prune --volumes</li>
+            <li class="fragment">docker system prune --all</li>
+          </ul>
+        </div>
+
+        <aside class="notes"></aside>
+      </section>
+
+      <section>
+        <h2>Explore</h2>
+
+        <div class="centered-slide-content r-stack">
+          <img alt="docker-output" src="images/docker-output.png">
+          <img alt="image-output" class="fragment" src="images/image-output.png">
+        </div>
+
+        <aside class="notes"></aside>
       </section>
 
       <section>
