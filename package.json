@@ -15,7 +15,7 @@
     "stylelint:fix": "stylelint '**/*.{css,html}' --fix"
   },
   "dependencies": {
-    "reveal.js": "^4.4.0"
+    "reveal.js": "^5.0.2"
   },
   "devDependencies": {
     "postcss-html": "^1.5.0",
